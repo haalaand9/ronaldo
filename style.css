@@ -1,26 +1,26 @@
 :root {
-  --bg: #140b0d;
-  --bg-soft: #200f13;
-  --panel: rgba(29, 16, 18, 0.8);
-  --panel-strong: rgba(38, 21, 24, 0.96);
-  --text: #fff7ef;
-  --muted: #f5d3c0;
-  --gold: #ffd166;
+  --bg: #17090b;
+  --bg-soft: #3a0d12;
+  --panel: rgba(39, 14, 17, 0.8);
+  --panel-strong: rgba(50, 18, 18, 0.96);
+  --text: #fff6ef;
+  --muted: #f7d6be;
+  --gold: #f9c74f;
   --gold-strong: #ff9f1c;
-  --blue: #f44336;
-  --shadow: rgba(0, 0, 0, 0.42);
+  --blue: #d72638;
+  --shadow: rgba(13, 6, 7, 0.48);
 }
 
 body.light-mode {
   --bg: #fff4ec;
-  --bg-soft: #ffe7d1;
+  --bg-soft: #f9d7b1;
   --panel: rgba(255, 255, 255, 0.84);
   --panel-strong: rgba(255, 255, 255, 0.96);
   --text: #2b120d;
   --muted: #6d463d;
-  --gold: #d76a00;
+  --gold: #c77b00;
   --gold-strong: #ff8a00;
-  --blue: #ce2d2d;
+  --blue: #b11f2e;
   --shadow: rgba(94, 34, 27, 0.12);
 }
 
@@ -46,8 +46,8 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 20%, rgba(255, 159, 28, 0.18), transparent 20%),
-    radial-gradient(circle at 80% 25%, rgba(244, 67, 54, 0.22), transparent 25%),
+    radial-gradient(circle at 15% 20%, rgba(249, 199, 79, 0.2), transparent 22%),
+    radial-gradient(circle at 80% 28%, rgba(210, 38, 56, 0.26), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 45%);
   pointer-events: none;
   z-index: 0;
@@ -73,8 +73,8 @@ a {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(10px);
-  background: rgba(6, 17, 29, 0.5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(90deg, rgba(28, 8, 11, 0.82), rgba(82, 13, 20, 0.78), rgba(123, 61, 7, 0.76));
+  border-bottom: 1px solid rgba(249, 199, 79, 0.2);
 }
 
 body.light-mode .site-header {
@@ -123,8 +123,8 @@ body.light-mode .site-header {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(120deg, rgba(20, 11, 13, 0.86), rgba(127, 18, 18, 0.33)),
-    url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+    linear-gradient(120deg, rgba(20, 11, 13, 0.82), rgba(127, 18, 18, 0.42)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_(cropped).jpg") center/cover no-repeat;
   min-height: 760px;
 }
 
@@ -322,12 +322,13 @@ body.light-mode .site-header {
   background: linear-gradient(180deg, rgba(17, 26, 38, 0.18), rgba(17, 26, 38, 0));
 }
 
-.goal-grid {
+.video-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
+.video-card,
 .goal-card {
   position: relative;
   overflow: hidden;
@@ -339,24 +340,34 @@ body.light-mode .site-header {
   animation: floatCard 6s ease-in-out infinite;
 }
 
+.video-card:nth-child(2),
 .goal-card:nth-child(2) {
   animation-delay: 0.8s;
 }
 
+.video-card:nth-child(3),
 .goal-card:nth-child(3) {
   animation-delay: 1.6s;
 }
 
+.video-card:hover,
 .goal-card:hover {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 26px 45px rgba(248, 199, 78, 0.16);
 }
 
+.video-frame,
 .goal-card-media {
   position: relative;
   height: 250px;
   overflow: hidden;
   background: #040c14;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .goal-card-media img {
@@ -367,6 +378,7 @@ body.light-mode .site-header {
   transition: transform 0.4s ease;
 }
 
+.video-card:hover .video-frame,
 .goal-card:hover .goal-card-media img {
   transform: scale(1.08);
 }
@@ -591,7 +603,7 @@ body.light-mode .site-header {
   .cards,
   .gallery-grid,
   .goat-grid,
-  .goal-grid {
+  .video-grid {
     grid-template-columns: 1fr;
   }
 
